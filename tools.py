@@ -41,5 +41,9 @@ simple_list = [i for i in range(10)]
 # We could even write 2 for loops
 simple_list2 = [f"{i} {j}" for i in range(10) for j in ("a", "b", "c")] # double for loop
 
+simple_list3 = [f"{i}{j}" for i in range(10) for j in ("a", "b", "c") if j == "a"] # only run when j == "a"
+
 print(simple_list)
 print("\n", simple_list2)
+
+print("\n \n", simple_list3)
