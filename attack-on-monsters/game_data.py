@@ -7,15 +7,20 @@
 """
 
 class Characteristics:
-    def __init__(self, name, health, weapon, shield):
+    def __init__(self, name, specie, health, weapon, shield):
         self.name = name
+        self.specie = specie
         self.health = health
         self.weapon = weapon
         self.shield = shield
 
+    def getProperty(self, prpty):
+        return self[prpty]
+
 class GameCharacter:
     def __init__(self, characteristics):
             self.name = characteristics.name
+            self.specie = characteristics.specie
             self.health = characteristics.health
             self.weapon = characteristics.weapon
             self.shield = characteristics.shield
@@ -32,10 +37,29 @@ class GameCharacter:
         target.health = 0 if (resultantHealth <= 0) else resultantHealth
     
     def printStats(self):
-        print("\n\n", f"{self.name.upper()}'s STATS \n");
-        print(f"name: {self.name} \nhealth: {self.health} \nshield: {self.shield} \nweaponName: {self.weapon['name']} \nweaponDamage: {self.weapon['damage']}")
+        print("\n\n", f"{self.name.upper()}'s STATS \n")
+        print(f"name: {self.name} ({self.specie}) \nhealth: {self.health} \nshield: {self.shield} \nweaponName: {self.weapon['name']} \nweaponDamage: {self.weapon['damage']}")
 
         return self
+
+WeaponMap = {
+            1: { "name": "Axe", "damage": 35 },
+            2: { "name": "Barrett M82", "damage": 40 },
+            3: { "name": "Laser emmitter", "damage": 45 },
+            4: { "name": "Challenger 2, (UK millitary Tank)", "damage": 200 },
+            5: { "name": "Lockheed Martin F-22 Raptor (US Fighter Jet)", "damage": 300},
+            6: { "name": "Fire and Claws", "damage": 110 },
+            7: { "name": "Apocalypse", "damage": 999 }
+        }
+
+EnemyMap = {
+            1: Characteristics("Mvtup", "Org", 120, WeaponMap[1], 50),
+            2: Characteristics("Rage-p-13", "Cyborg", 130, WeaponMap[5], 50),
+            3: Characteristics("Nanya", "Dragon", 160, WeaponMap[6], 70),
+            4: Characteristics("Gibrish-Gibrish", "Alien", 50, WeaponMap[7], 1000),
+        }
+
+print(EnemyMap[1])
 
 ## TESTING
 """

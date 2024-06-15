@@ -33,6 +33,14 @@ and run
 
 This should initialize the game and get you started.
 
+### Game description
+
+```Attack On Monsters``` is a python Script I've written, on where the user get's to interact with the game, and take decisions that'll impact their game play.
+
+![preview](./assets/attack-on-monsters-gameplay.png)
+
+While building this game, I got to learn python, and also, understand a few thins about the vim editor (I'm using neo Vim)
+
 #### Enjoy a piece of ARTTT 😌!!
 
 ---

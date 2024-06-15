@@ -1,12 +1,10 @@
-print("IN game intro")
+from game_data import Characteristics, GameCharacter, EnemyMap, WeaponMap
 
 def validateInput(stat, baseMsg, leastVal, highestVal):
-    tries = 0
-
     data = int(input(baseMsg))
 
     if (data < leastVal or data > highestVal):
-        newMsg = f"\n{stat} must a value between {leastVal} and {highestVal}, please try again\n"
+        newMsg = f"\n{stat} must be a value between {leastVal} and {highestVal}, please try again\n"
         validateInput(stat, newMsg, leastVal, highestVal);
     else:
         return data
@@ -26,11 +24,46 @@ def onBoardUser():
 
     print(f"\nTime to mod {name}'s weapon\n")
 
-    weaponName = input("Name his weapon: \n")
+    useCustomWeapon = True if (input("Enter 'C' to use a custom weapon, or hit any key to select from our inventory\n").upper() == "C") else False
 
-    weaponDamage = validateInput("weapon damage", "\nSet weapon damage. Damage is within 10 to 45 \n", 10, 45)
+    weapon = {}
 
-    print("Step Completed\n")
+    if (useCustomWeapon):
+        weaponName = input(f"What weapon should {name} use: \n")
 
-    print(name, health, shield, weaponName, weaponDamage)
+        weaponDamage = validateInput("weapon damage", "\nSet weapon damage. Damage is within 10 to 45 \n", 10, 45)
+        weapon = { "name": weaponName, "damage": weaponDamage }
+    else:
+        print("Press the numbers in braces '[]' to make selection\n")
 
+        baseMsg = "Inventory: \n"
+
+        for i in range(1, 6):
+            baseMsg += f"[{i}] - {WeaponMap[i]['name']}\n"
+
+        baseMsg += "\nSelect tool "
+        
+        weapon_id = validateInput("Weapon", baseMsg, 1, 5)
+
+        weapon = WeaponMap[weapon_id]
+
+
+    avatarXtics = Characteristics(name, "Human", health, weapon, shield)
+
+    print("press the number in brackets ([]) to choose your enemy\n");
+
+    enemyBaseMsg = "What Enemy would you want to fight against\n"
+
+    EnemyCollection = ("Orgs", "Cyborgs", "Dragons", "Aliens") # using this instead of EnemyMap since I had difficulties reference the properties I need
+
+    for i in range(len(EnemyCollection)):
+        enemyBaseMsg += f"[{i + 1}] - {EnemyCollection[i]}\n"
+
+    enemyBaseMsg += "\nSelect and enemy "
+
+    enemy_id = validateInput("", enemyBaseMsg, 1, 4)
+
+    return {
+            "enemy": GameCharacter(EnemyMap[enemy_id]),
+            "avatar": GameCharacter(avatarXtics), # returning a newly created avatar for the user.
+           }
