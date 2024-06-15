@@ -31,15 +31,17 @@ and run
   python3 index.py
 ```
 
-This should initialize the game and get you started.
+- This should initialize the game and get you started.
+- Follow game instructions to play
 
 ### Game description
 
 ```Attack On Monsters``` is a python Script I've written, on where the user get's to interact with the game, and take decisions that'll impact their game play.
 
 ![preview](./assets/attack-on-monsters-gameplay.png)
+![another-game-play](./assets/game-2.png)
 
-While building this game, I got to learn python, and also, understand a few thins about the vim editor (I'm using neo Vim)
+While building this game, I got to learn a some things about python, and also, understood a few thins about the vim editor (I'm using neo Vim)
 
 #### Enjoy a piece of ARTTT 😌!!
 
