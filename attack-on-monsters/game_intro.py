@@ -1,16 +1,10 @@
 from game_data import Characteristics, GameCharacter, EnemyMap, WeaponMap
-
-def validateInput(stat, baseMsg, leastVal, highestVal):
-    data = int(input(baseMsg))
-
-    if (data < leastVal or data > highestVal):
-        newMsg = f"\n{stat} must be a value between {leastVal} and {highestVal}, please try again\n"
-        validateInput(stat, newMsg, leastVal, highestVal);
-    else:
-        return data
+from utils import validateInput, printBoxedMsg
 
 def onBoardUser():
-    print("Hello adventurer!, welcome to my mini-game. \nWelcome to 'ATTACK ON THE MONTERS'\n\n")
+    printBoxedMsg("ATTACK ON MONSTERS", 1) # 1 is the number of lines
+
+    print("Hello adventurer!, welcome to my mini-game. \nWelcome to 'ATTACK ON MONSTERS'\n\n")
 
     print("In this game, you'll create your avatar, set out on a quest and get attacked by monsters, you will have to fight back too. \n")
 
@@ -38,19 +32,19 @@ def onBoardUser():
 
         baseMsg = "Inventory: \n"
 
-        for i in range(1, 6):
+        for i in range(1, 7):
             baseMsg += f"[{i}] - {WeaponMap[i]['name']}\n"
 
         baseMsg += "\nSelect tool "
         
-        weapon_id = validateInput("Weapon", baseMsg, 1, 5)
+        weapon_id = validateInput("Weapon", baseMsg, 1, 6)
 
         weapon = WeaponMap[weapon_id]
 
 
     avatarXtics = Characteristics(name, "Human", health, weapon, shield)
 
-    print("press the number in brackets ([]) to choose your enemy\n");
+    print("press the number in brackets ([]) to choose your enemy\n")
 
     enemyBaseMsg = "What Enemy would you want to fight against\n"
 

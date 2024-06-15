@@ -46,17 +46,18 @@ WeaponMap = {
             1: { "name": "Axe", "damage": 35 },
             2: { "name": "Barrett M82", "damage": 40 },
             3: { "name": "Laser emmitter", "damage": 45 },
-            4: { "name": "Challenger 2, (UK millitary Tank)", "damage": 200 },
-            5: { "name": "Lockheed Martin F-22 Raptor (US Fighter Jet)", "damage": 300},
-            6: { "name": "Fire and Claws", "damage": 110 },
-            7: { "name": "Apocalypse", "damage": 999 }
+            4: { "name": "M142 HIMARS (US rocket launcher)", "damage": 90 },
+            5: { "name": "Challenger 2, (UK millitary Tank)", "damage": 200 },
+            6: { "name": "Lockheed Martin F-22 Raptor (US Fighter Jet)", "damage": 300},
+            7: { "name": "Fire and Claws", "damage": 110 },
+            8: { "name": "Apocalypse", "damage": 999 }
         }
 
 EnemyMap = {
             1: Characteristics("Mvtup", "Org", 120, WeaponMap[1], 50),
             2: Characteristics("Rage-p-13", "Cyborg", 130, WeaponMap[5], 50),
-            3: Characteristics("Nanya", "Dragon", 160, WeaponMap[6], 70),
-            4: Characteristics("Gibrish-Gibrish", "Alien", 50, WeaponMap[7], 1000),
+            3: Characteristics("Nanya", "Dragon", 160, WeaponMap[7], 70),
+            4: Characteristics("Gibrish-Gibrish", "Alien", 50, WeaponMap[8], 1000),
         }
 
 print(EnemyMap[1])

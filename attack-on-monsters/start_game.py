@@ -1,15 +1,31 @@
-from game_intro import onBoardUser
+from utils import validateInput, printBoxedMsg
 
-userResponse = onBoardUser()
+class NewGame:
+    def __init__ (self, avatar, enemy):
+        self.avatar = avatar
+        self.enemy = enemy
 
-print("\n-----------------------", "\n| Get Ready To Battle |", "\n-----------------------")
+        self.prompts = [
+                    "strike enemy",
+                    "take some damage",
+                    "view avatar state",
+                    "view enemy state",
+                ]
+    
+    def start(self):
+        printBoxedMsg("Game Started", 1)
+        self.promptDefaultActions()
 
-avatar = userResponse["avatar"]
+    def promptDefaultActions(self):
+        baseMsg = "\nWhat would you like to do now\n"
 
-enemy = userResponse["enemy"]
+        for i in range(len(self.prompts)):
+            baseMsg += f"[{i + 1}] - {self.prompts[i]}\n"
 
-avatar.printStats()
+        action_id = validateInput("Decision", baseMsg, 1, 4)
 
-print("\n\n________VS________")
+        self.takeAction(action_id)
 
-enemy.printStats()
+    def takeAction(self, action_id):
+        print(f"you choose - {action_id}")
+
