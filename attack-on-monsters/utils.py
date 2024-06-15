@@ -8,8 +8,8 @@ def validateInput(stat, baseMsg, leastVal, highestVal):
         return data
 
 def printBoxedMsg(message, lines = 0):
-    length = len(message);
-    
+    length = len(message)
+
     dashes = ""
 
     newLines = "\n"

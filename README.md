@@ -28,7 +28,7 @@ and run
 
 ```bash
   # on ubuntu
-  python3 start_game.py
+  python3 index.py
 ```
 
 This should initialize the game and get you started.
