@@ -5,6 +5,10 @@
     example:
     __init__ is run when an instance of the classs is created
     __len__ gets called when the instance is passed into the "len()" function
+    __repr__ gets called when the instance is passed into a print() function
+
+    checkout more methods here
+    https://www.geeksforgeeks.org/dunder-magic-methods-python/
 """
 
 class Employee:
