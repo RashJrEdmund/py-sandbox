@@ -3,6 +3,22 @@
 """
 
 # BASIC-INHERITANCE:
+class TestParent:
+    def __init__(self):
+        print("Parent inherited")
+
+    def sayHello(self):
+        print("Hello man!!")
+
+class TestChild(TestParent):
+    def sayBye(self):
+        print("Bye man")
+
+child = TestChild()
+
+child.sayBye()
+
+# INHERITANCE WITH ARGUMENTS
 class Human:
     def __init__(self, health):
         self.health = health;
@@ -11,8 +27,8 @@ class Human:
         print("Attacking")
 
 class Warrior(Human):
-    def __init_(self, health, defence):
-        super().__init_(health) # calling the dunder __init__ method of the parent class with Super()
+    def __init__(self, health, defence):
+        super().__init__(health) # calling the dunder __init__ method of the parent class with super()
         self.defence = defence
 
 class Barbarian(Human):
@@ -21,6 +37,9 @@ class Barbarian(Human):
         self.damage  = damage
 
 warrior = Warrior(90, 50)
-warrior.attack();
+warrior.attack()
+
+barbarian = Barbarian(100, 70)
 
 print("Warrior health", warrior.health)
+print("Barbarian Damage", barbarian.damage)
