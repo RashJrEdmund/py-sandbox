@@ -32,7 +32,7 @@ else:
         block of code # well indented
 """
 
-counter = 0;
+counter = 0
 
 while (counter <= userInput):
     print(counter)
