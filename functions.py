@@ -2,7 +2,7 @@
     we declare functions using the "def" key word"
 
     def func_name(parameters):
-        code
+        # code
         return;
 """
 def print_n_times(n = 3): # also defines default values just like in JS
@@ -14,7 +14,6 @@ def print_n_times(n = 3): # also defines default values just like in JS
 def hypotenuse_calculator():
     side_a = int(input("Enter Adjacent Side "))
     side_o = int(input("Enter Opposite Side "))
-
 
     hypotenuse = pow(side_a**2 + side_o**2, 1/2)
     return round(hypotenuse, 2)
@@ -41,7 +40,7 @@ def shouter(word = "word", num_repeats = 2):
         print("you are too loud")
     else:
         for i in range(int(num_repeats)):
-            print(word);
+            print(word)
 
     return "done"
 
@@ -55,7 +54,7 @@ print(res)
 
 # LAMBDA FUNCTIONS
 """
-    Functions so simple that don't really merrit an entire function definition.
+    Functions so simple that don't really merit an entire function definition.
     Here where we keep the entire logic on single line.
     They are also assigned to variable names just like in Js, except we make use of the lambda keyword
 """
@@ -68,7 +67,7 @@ def normal_doubler(num):
 
 lambda_doubler = lambda num: num * 2 # receiving one paramter.
 """
-    to recieve multiple parameters, we do
+    to receive multiple parameters, we do
 
     test_func = lambda num1, num2: num1 * num2 
 """
@@ -76,12 +75,12 @@ lambda_doubler = lambda num: num * 2 # receiving one paramter.
 print("lambda func", lambda_doubler(2))
 
 """
-    they can be used commoning in other functions like the sorted() function
+    they can be used commonly in other functions like the sorted() function
 """
 # Example
 """
     sort the following list of tuples, where the second value in the tuple is the age of
-    of the person given as the firts value in that tuple
+    of the person given as the first value in that tuple
 """
 random_num_list = [2, 40, 1, 3, 5, 4, 9, 6]
 
