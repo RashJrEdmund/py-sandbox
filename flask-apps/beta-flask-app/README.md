@@ -9,18 +9,22 @@ _This is built on and from the [basic-flask-app](../basic-flask-app/README.md)_
 - after everything is setup and installed. you should be able to run
 
 ```bash
-  # default entry file name is "main.py"
-  $ flask --app `main_app_name.py` run
+  # default entry folder name is "main/"
+  $ flask --app `entry_folder_name` run
+  # `entry_folder` is mostly the one with the __init__.py file
 ```
 
 - ### bonus for using folders
+
   - Just as [starting the app and the bonus section](../basic-flask-app/README.md#starting-the-app) in the basic-flask-app documentation, there's a similar pattern when using folders.
 
-  - If you name the entry file as `app.py` or `wsgi.py`, you can simply start the serve by running
+  - If you name the entry folder name is `app` (as in this case) or `wsgi`, you can simply start the serve by running
 
   ```bash
     flask run
   ```
+
+  - provided it has an `__init__.py` file
 
 ___
 ___

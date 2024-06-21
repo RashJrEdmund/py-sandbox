@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flask App - Create User</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 4rem auto;
+
+      input {
+        width: 100%;
+        background-color: brown;
+        padding: 10px;
+        background: none;
+        border-radius: 4px;
+        border: 0.5px solid gray;
+
+        &[type="submit"] {
+          cursor: pointer;
+          background-color: #000;
+          color: #fff;
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 1rem;
+          margin-top: 1.2rem;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/users/" method="post">
+    <input type="text" name="name" placeholder="Enter name">
+
+    <input type="email" name="email" placeholder="Enter email">
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>
