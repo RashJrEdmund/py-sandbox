@@ -4,24 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flask App - Create User</title>
-
+  <title>Flask App - User</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      border: none;
-    }
-
-    body {
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     form {
       display: flex;
       flex-direction: column;
@@ -51,14 +36,33 @@
   </style>
 </head>
 
-<body>
-  <form action="/users/" method="post">
-    <input type="text" name="name" placeholder="Enter name">
+<body class="min-h-screen flex flex-col items-center justify-center">
+  <p>
+    Updating {{ user.name }}
+  </p>
 
-    <input type="email" name="email" placeholder="Enter email">
+  <form>
+    <input type="text" name="name" placeholder="change user name" value="{{ user.name }}">
+    <input type="email" name="email" placeholder="change user email" value="{{ user.email }}">
 
-    <input type="submit" value="Submit">
+    <button type="submit">
+      Update User
+    </button>
   </form>
 </body>
+
+<script>
+  document.querySelector("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const userUpdate = {
+      name: e.target.name,
+      email: e.target.email,
+    }
+
+
+    console.log({ userUpdate })
+  })
+</script>
 
 </html>

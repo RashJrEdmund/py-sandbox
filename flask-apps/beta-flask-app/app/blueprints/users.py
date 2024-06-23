@@ -7,9 +7,11 @@ from flask import (
   url_for,
 )
 
-# from app import ( # app here is the app folder referencing the __init__ file
-#   UserModel, # use these docs to know how to query using db.session, https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/#query-the-data
-# )
+from app.extensions import db
+
+from app.models.user import ( # app here is the app folder referencing the __init__ file
+  UserModel, # use these docs to know how to query using db.session, https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/#query-the-data
+)
 
 user_bp = Blueprint("users", __name__, url_prefix="/users")
 
@@ -17,19 +19,19 @@ template_dir = "users"
 
 @user_bp.route("/") # default methods +=>  methods=["GET"]
 def get_all_users():
-  from app import UserModel
-
   users = UserModel.query.all()
 
-  return render_template(f"{template_dir}/all.jinja", users=users)
+  return render_template(f"{template_dir}/all.html", users=users)
 
 @user_bp.route("/create/")
 def create_user_page():
-  return render_template(f"{template_dir}/create.jinja")
+  return render_template(f"{template_dir}/create.html")
 
-@user_bp.route("/<user_name>/") # matching "/users/<user_name>/"
-def user_route(user_name):
-  return render_template(f"{template_dir}/get-one.jinja", user_name=user_name)
+@user_bp.route("/<uuid:user_id>/") # matching "/users/<user_id>/" an making use of the uuid converter. read more about converters here  https://flask.palletsprojects.com/en/3.0.x/quickstart/#variable-rules
+def user_route(user_id):
+  user = UserModel.query.get(str(user_id))
+
+  return render_template(f"{template_dir}/get-one.html", user=user)
 
 @user_bp.route("/", methods=["POST"])
 def add_user():
@@ -37,9 +39,13 @@ def add_user():
   method = request.method
   form = request.form
 
-  # return form # sends back, as json, the form
+  new_user = UserModel(
+    name=form["name"],
+    email=form["email"]
+  )
 
-  # store user in db
+  db.session.add(new_user) # saving new user to db
+  db.session.commit()
 
   return redirect(url_for("users.create_user_page"))
   """
@@ -52,4 +58,13 @@ def add_user():
     url_for("users.create_user_page") to redirect back to the form page.
   """
 
-  return f"creating user: method: {method}, name: json.name"
+@user_bp.route("/<uuid:user_id>", methods=["DELETE"]) # making use of the uuid converter
+def delete_user(user_id):
+  user = UserModel.query.get(str(user_id))
+
+  db.session.delete(user)
+  db.session.commit()
+
+  print("\n", user.name, "\n")
+
+  return f"delete user {user_id}"

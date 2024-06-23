@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    {% block head %}
+    <link rel="stylesheet" href="style.css" />
+    <title>Flask - App | {% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-start">
+  <nav class="w-full max-w-[1400px] flex items-center justify-center mx-auto bg-gray-800 text-white mb-3">
+    <div class="w-full flex items-center justify-start">
+        <a href="/" class="px-6 py-3 mx-4">Home</a>
+        <a href="/users/" class="px-6 py-3 mx-4">Users</a>
+        <a href="/users/create/" class="px-6 py-3 mx-4">Create New</a>
+    </div>
+  </nav>
+
+    <div id="content" class="w-full flex flex-col items-center justify-start">
+      {% block content %}{% endblock %}
+    </div>
+
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright Jun 24 2024 by <a href="https://github.com/rashjredmund" target="_blank">Rash</a>.
+        {% endblock %}
+    </div>
+</body>
+</html>
