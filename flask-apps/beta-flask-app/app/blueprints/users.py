@@ -17,18 +17,19 @@ template_dir = "users"
 
 @user_bp.route("/") # default methods +=>  methods=["GET"]
 def get_all_users():
-  # users = UserModel.query.all()
-  # print(users)
+  from app import UserModel
 
-  return render_template(f"{template_dir}/all.html")
+  users = UserModel.query.all()
+
+  return render_template(f"{template_dir}/all.jinja", users=users)
 
 @user_bp.route("/create/")
 def create_user_page():
-  return render_template(f"{template_dir}/create.html")
+  return render_template(f"{template_dir}/create.jinja")
 
 @user_bp.route("/<user_name>/") # matching "/users/<user_name>/"
 def user_route(user_name):
-  return render_template(f"{template_dir}/get-one.html", user_name=user_name)
+  return render_template(f"{template_dir}/get-one.jinja", user_name=user_name)
 
 @user_bp.route("/", methods=["POST"])
 def add_user():

@@ -1,11 +1,12 @@
 # # this file is will run automatically
 # print("Hello from __init__ file")
 
-from flask import Flask
+from flask import Flask, render_template
+from uuid import uuid4 as v4
 
 from flask_sqlalchemy import SQLAlchemy # checkout the sql_alchemy docs https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/
 
-from app.blueprints import ( # app.blueprints is referencing the blueprints folder
+from app.blueprints import ( # app.blueprints is referencing the blueprints folder in the app/ dir
   index, # this is the index file
   users, # the users file
   blogs,
@@ -24,7 +25,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 db.init_app(app)
 
 #
-## registering blueprints
+# registering blueprints
 app.register_blueprint(index.index_bp)
 
 app.register_blueprint(users.user_bp)
@@ -33,9 +34,17 @@ app.register_blueprint(blogs.blog_bp)
 
 # Creating models
 class UserModel(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
+  id = db.Column(db.String, primary_key=True)
   name = db.Column(db.String, nullable=False)
   email = db.Column(db.String, unique=True, nullable=False)
+
+  def __init__(this, name: str, email: str):
+    this.id = str(v4()) # ensuring the id is a uuid
+    this.name = name
+    this.email = email
+
+  def getKeys(this):
+    return ["Id", "Name", "Email"]
 
 with app.app_context():
   db.create_all() # to create all database models in the instance folder in app
