@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flask App - User</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+{% block title %}User{% endblock %}
+
+{% block head %}
   <style>
     form {
       display: flex;
@@ -34,35 +31,30 @@
       }
     }
   </style>
-</head>
+{% endblock %}
 
-<body class="min-h-screen flex flex-col items-center justify-center">
-  <p>
-    Updating {{ user.name }}
+{% block content %}
+  <p class="text-2xl font-semibold my-4">
+    Showing {{ user.name }}
   </p>
 
   <form>
     <input type="text" name="name" placeholder="change user name" value="{{ user.name }}">
     <input type="email" name="email" placeholder="change user email" value="{{ user.email }}">
 
-    <button type="submit">
-      Update User
-    </button>
+    <input type="submit" value="Update User" >
   </form>
-</body>
 
-<script>
-  document.querySelector("form").addEventListener("submit", (e) => {
-    e.preventDefault();
+  <script>
+    document.querySelector("form").addEventListener("submit", (e) => {
+      e.preventDefault();
 
-    const userUpdate = {
-      name: e.target.name,
-      email: e.target.email,
-    }
+      const userUpdate = {
+        name: e.target.name,
+        email: e.target.email,
+      }
 
-
-    console.log({ userUpdate })
-  })
-</script>
-
-</html>
+      console.log({ userUpdate })
+    })
+  </script>
+{% endblock %}

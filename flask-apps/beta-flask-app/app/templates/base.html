@@ -3,13 +3,14 @@
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    {% block head %}
     <link rel="stylesheet" href="style.css" />
     <title>Flask - App | {% block title %}{% endblock %}</title>
+
+    {% block head %}
     {% endblock %}
 </head>
 
-<body class="min-h-screen flex flex-col items-center justify-start">
+<body class="min-h-screen flex flex-col items-center justify-between">
   <nav class="w-full max-w-[1400px] flex items-center justify-center mx-auto bg-gray-800 text-white mb-3">
     <div class="w-full flex items-center justify-start">
         <a href="/" class="px-6 py-3 mx-4">Home</a>
@@ -18,14 +19,14 @@
     </div>
   </nav>
 
-    <div id="content" class="w-full flex flex-col items-center justify-start">
-      {% block content %}{% endblock %}
-    </div>
+  <div id="content" class="w-full flex flex-col items-center justify-start">
+    {% block content %}{% endblock %}
+  </div>
 
-    <div id="footer">
-        {% block footer %}
-        &copy; Copyright Jun 24 2024 by <a href="https://github.com/rashjredmund" target="_blank">Rash</a>.
-        {% endblock %}
-    </div>
+  <div id="footer" class="">
+      {% block footer %}
+      &copy; Copyright Jun 24 2024 by <a href="https://github.com/rashjredmund" target="_blank">Rash</a>.
+      {% endblock %}
+  </div>
 </body>
 </html>
