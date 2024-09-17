@@ -25,12 +25,14 @@ __Note__: _you are gonna have to create a v-e in both the sand-box and flask-app
 
   - This should create a `venv` folder (which is the virtual environment)
 
-  - next, you have to __activate__ the virtual environment. To do so, execute
+  - Next, you have to __activate__ the virtual environment. To do so, execute
 
     ```bash
       # for linux
       $ source venv/bin/activate
     ```
+
+    - Deactivate it by simply executing the `deactivate` on your terminal
 
   - you should see you file path look similar to this
 

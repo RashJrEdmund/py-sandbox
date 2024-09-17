@@ -1,13 +1,13 @@
 """
-    By containers, I mean data structures that can contian multiple data, and even of different data types.
+    By containers, I mean data structures that can contain multiple data, and even of different data types.
     They include "Lists, Tuples, Dictionaries, and Sets"
 
 """
 
 # TUPLES AND LISTS
 """
-    Think of turples and lists like arrays in JS except that tuples are immutable, and use paranthesis "()" instead
-    instead of square braces to add their openning and closing boundraris. Also, you can not use the .append()
+    Think of tuples and lists like arrays in JS except that tuples are immutable, and use parenthesis "()" instead
+    instead of square braces to add their opening and closing boundaries. Also, you can not use the .append()
     method data to a tuple.
 """
 
@@ -22,8 +22,8 @@ myList = [1, 0, "some-val", ["another array"], (2,31)]
     - also, we can slice the list with the following syntax
         - myList[0:2] # [1, 0] ____just like Array.slice in JS where the last index (2 in this case) is not included.
         
-    - Also, we can add a step size, to tell how many indecies to skip
-        - myList[0:4:2] # [1, "some-val"]
+    - Also, we can add a step size, to tell how many indices to skip
+        - myList[0:4:2] # [1, "some-val"]. the default skip step is 1 so default is [0:4:1]
 """
 
 print("\n", myTuple, "\n", myList, "\n")
@@ -33,7 +33,7 @@ print(myList[0:4:2]); # just like Array.slice(0, 4) but will skip 2 elements jus
 
 # SETS
 """
-    Sets follow the same comma seperated pattern as LISTS, and Tuples execpt it's like the JavaScript "Set" data
+    Sets follow the same comma separated pattern as LISTS, and Tuples except it's like the JavaScript "Set" data
     structure. All values in a set are unique and any duplicates are removed
 """
 
@@ -44,8 +44,8 @@ print(mySet)
 # DICTIONARIES
 """
     My favorite data structure so far. They are like JavaScript Maps and objects. with key value pairs,
-    where the values could be any data type, also you access key values using the bracket notation or 
-    dictionary.get(key)
+    where the values could be any data type, also you access key values using the bracket notation (dictionary["key_to_get"])
+    or with the ".get()" method (dictionary.get("key_to_get"))
 """
 
 myDictionary = { "name": "Rash", "Age": 201 }

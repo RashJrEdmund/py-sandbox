@@ -7,18 +7,20 @@
 """
 
 class Characteristics:
-    def __init__(self, name, race, health, weapon, shield):
+    def __init__(self, name: str, race: str, health: float, weapon: str, shield: int):
         self.name = name
         self.race = race
         self.health = health
         self.weapon = weapon
         self.shield = shield
 
-    def getProperty(self, prpty):
+    def getProperty(self, prpty) -> str:
         return self[prpty]
 
 class GameCharacter:
-    def __init__(self, characteristics):
+    def __init__(self, characteristics: Characteristics):
+            self.xtics = characteristics # setting his base characteristics
+
             self.name = characteristics.name
             self.race = characteristics.race
             self.health = characteristics.health
@@ -51,12 +53,15 @@ class GameCharacter:
 
         return self
 
+    def getOriginalXtics(self):
+        return self.xtics
+
 WeaponMap = {
             1: { "name": "Axe", "damage": 35 },
-            2: { "name": "Barrett M82 (Assualt rifle)", "damage": 40 },
-            3: { "name": "Laser emmitter", "damage": 45 },
+            2: { "name": "Barrett M82 (Assault rifle)", "damage": 40 },
+            3: { "name": "Laser emitter", "damage": 45 },
             4: { "name": "M142 HIMARS (US rocket launcher)", "damage": 90 },
-            5: { "name": "Challenger 2, (UK millitary Tank)", "damage": 200 },
+            5: { "name": "Challenger 2, (UK military Tank)", "damage": 200 },
             6: { "name": "Lockheed Martin F-22 Raptor (US Fighter Jet)", "damage": 300},
             7: { "name": "Fire and Claws", "damage": 110 },
             8: { "name": "Apocalypse", "damage": 999 }

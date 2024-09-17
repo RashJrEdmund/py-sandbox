@@ -7,7 +7,7 @@ print(5 >= 5)
 
 # IF STATEMENT
 """
-   if condiftion 1:
+   if condition 1:
         block of code # make sure you indent.
    elif condition 2:
         another block of code
@@ -54,8 +54,12 @@ testList = [1, 2, 3, 4, 5]
 for val in testList: # would work same for tuples
     print(val)
 
-# Dctionaries
-testDictionary = { "key 1": "val 1", "key 2": "val 2", "key 3": "val 3" }
+# Dictionaries
+testDictionary = {
+    "key 1": "val 1",
+    "key 2": "val 2",
+    "key 3": "val 3"
+}
 
 # 1
 for key in testDictionary: # defaults to testDictionary.keys()
@@ -71,7 +75,9 @@ for val in testDictionary.values():
 print("\nprinting both key and value\n")
 
 for items in testDictionary.items():
-    print("items", items)
+    print("items", items) # prints in the form ('key 1', 'val 1')
+
+print(testDictionary.items()) # dict_items([('key 1', 'val 1'), ('key 2', 'val 2'), ('key 3', 'val 3')])
 
 # 4
 print("\ndestructuring items both key and value\n")

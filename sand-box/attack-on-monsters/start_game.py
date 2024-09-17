@@ -1,9 +1,11 @@
-from utils import validateInput, printBoxedMsg
+from utils import validateInput, printBoxedMsg;
+from game_data import GameCharacter;
 
 class NewGame:
-    def __init__ (self, avatar, enemy):
+    def __init__ (self, avatar: GameCharacter, enemy: GameCharacter, isFirstGamePlay = True):
         self.avatar = avatar
         self.enemy = enemy
+        self.isFirstGamePlay = isFirstGamePlay
 
         self.inGamePrompts = [
                     (1, "strike enemy"),
@@ -19,14 +21,29 @@ class NewGame:
                 ]
     
     def start(self):
-        printBoxedMsg("Game Started", 1)
+        self.avatar.printStats()
+
+        print("\n\n________VS________")
+
+        self.enemy.printStats()
+
+        if self.isFirstGamePlay: printBoxedMsg("Game Started", 1)
+
         self.promptActions(self.inGamePrompts)
 
     def exitGame(self):
         print("Thanks for playing", "\nCome back next time")
 
     def restart(self):
-        print("Restarting game")
+        print("Restarting game!")
+
+        newGame = NewGame(
+            avatar = GameCharacter(self.avatar.getOriginalXtics()), # using keyword arguments instead of positional arguments
+            enemy = GameCharacter(self.enemy.getOriginalXtics()),
+            isFirstGamePlay = False
+        )
+
+        newGame.start()
 
     def checkHealthStatuses(self):
         if (self.avatar.getHealth() <= 0):
@@ -87,4 +104,4 @@ class NewGame:
 
         # CHECK IN ENEMY OR AVATAR IS STILL ALIVE
         if (checkHealths):
-            self.checkHealthStatuses() 
+            self.checkHealthStatuses()
