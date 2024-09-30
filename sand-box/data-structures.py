@@ -8,7 +8,7 @@
 """
     Think of tuples and lists like arrays in JS except that tuples are immutable, and use parenthesis "()" instead
     instead of square braces to add their opening and closing boundaries. Also, you can not use the .append()
-    method data to a tuple.
+    method to add data to a tuple.
 """
 
 myTuple = (1, 0, "some-val", ("another tuple", 1), [1,2])

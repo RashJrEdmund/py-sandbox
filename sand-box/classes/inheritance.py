@@ -1,5 +1,5 @@
 """
-    Inheritance in Python is similar to inheritances in other langauges
+    Inheritance in Python is similar to inheritances in other languages
 """
 
 # BASIC-INHERITANCE:
@@ -27,9 +27,9 @@ class Human:
         print("Attacking")
 
 class Warrior(Human):
-    def __init__(self, health, defence):
+    def __init__(self, health, defense):
         super().__init__(health) # calling the dunder __init__ method of the parent class with super()
-        self.defence = defence
+        self.defense = defense
 
 class Barbarian(Human):
     def __init__(self, health, damage):

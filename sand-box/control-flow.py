@@ -39,7 +39,7 @@ while (counter <= userInput):
     counter += 1
 
 print("while loop done")
-    
+
 
 # FOR LOOP
 """
@@ -58,7 +58,8 @@ for val in testList: # would work same for tuples
 testDictionary = {
     "key 1": "val 1",
     "key 2": "val 2",
-    "key 3": "val 3"
+    "key 3": "val 3",
+    "key 4": 4
 }
 
 # 1
@@ -84,5 +85,3 @@ print("\ndestructuring items both key and value\n")
 
 for key, val in testDictionary.items():
     print("key:", key, "| and |", "value:", val)
-
-

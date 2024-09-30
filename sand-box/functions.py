@@ -65,7 +65,7 @@ def normal_doubler(num):
 
 # lambda version of the doubler function
 
-lambda_doubler = lambda num: num * 2 # receiving one paramter.
+lambda_doubler = lambda num: num * 2 # receiving one parameter.
 """
     to receive multiple parameters, we do
 
@@ -87,7 +87,7 @@ random_num_list = [2, 40, 1, 3, 5, 4, 9, 6]
 print(sorted(random_num_list)) # sorts the numbers in ascending order. [1, 2, 3, 4, 5, 6, 9, 40]
 
 #  but now
-random_tuple_list = [("Kelmith", 21), ("Ekep", 20), ("Rash", 19)]
+random_tuple_list = [("Kelmith", 22), ("Ekep", 20), ("Rash", 22)]
 
 sorted_tuple_list = sorted(random_tuple_list, key = lambda user_tuple: user_tuple[1]) #
 

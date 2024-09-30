@@ -22,7 +22,7 @@ class Monster(Entity): # [2] - COMPLETED
         super().__init__(damage)
         self.health = health
 
-    def __repr__(self):
+    def __repr__(self): # [3] - COMPLETED   
         return f"a monster with {self.health} hp"
 
 
@@ -30,13 +30,13 @@ monster = Monster(80, 50)
 
 monster.attack()
 
-print(monster) # causes the dunder __repr__ method to execute and prints it's return value instaed of thejust printing the default object form
+print(monster) # causes the dunder __repr__ method to execute and prints it's return value instead of just printing the default object form
 
 #
 # BETTER SOLUTION.
 """
     Instead of defining the __init__ method on the Entity class, and having more lines of code,
-    we could, "since the class does nothing else but print the damage, just use assing the damage
+    we could, "since the class does nothing else but print the damage, just use assign the damage
     to self in the "Monster" class, and then reference it directly in the Entity class, since
     when the "Monster" class inherits from the "Entity" class, the "self" in the "Entity" class
     will reference the self in the "Monster" class"
