@@ -64,6 +64,8 @@ __Note__: _you are gonna have to create a v-e in both the sand-box and flask-app
       pip install `module_name` && pip freeze > requirements.txt
     ```
 
+  - use `pip list --local` to see all locally installed modules in your virtual env
+
 ### Cool new commands
 
 - `>>`
