@@ -41,7 +41,7 @@ __Note__: _you are gonna have to create a v-e in both the sand-box and flask-app
     ```
 
   - You should be able to safely install packages with `pip`
-  
+
 - Now, to install the packages in requirements.txt file of that folder, execute
 
   ```bash

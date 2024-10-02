@@ -21,7 +21,7 @@ I have the following sandbox repositories too.
 ---
 ---
 
-# Playing my mini game: Attack On Monsters 😅
+# Playing my mini game: Attack HttpClientProviderOn Monsters 😅
 
 navigate into the attack-on-monsters directory
 and run
