@@ -12,7 +12,6 @@ print("Given a triangle OAH, where H is the hypotenuse, and OA the other 2 sides
 O = int(input("Enter the opposite side "))
 A = int(input("Enter the Adjacent side \n"))
 
-
 """
     In python, to raise a vale to a power, we use either the "pow(val, power)" function, or the "**" operator (double asterisk)
 """
